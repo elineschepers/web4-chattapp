@@ -8,12 +8,18 @@
 <c:choose>
 <c:when test="${param.title=='Home'}">
 <li  id="actual"><a href="index.jsp">Home</a></li>
+    <c:if test="${user==null}">
+        <li><a href="signUp.jsp">Sign Up</a></li>
+    </c:if>
     <c:if test="${user!=null}">
     <li><a href="Controller?action=Chat">Chat</a></li>
     </c:if>
 </c:when>
 <c:otherwise>
     <li><a href="index.jsp">Home</a></li>
+    <c:if test="${user==null}">
+        <li><a href="signUp.jsp">Sign Up</a></li>
+    </c:if>
     <c:if test="${user!=null}">
         <li><a href="Controller?action=Chat">Chat</a></li>
 </c:if>

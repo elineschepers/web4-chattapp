@@ -26,7 +26,12 @@
 
 <main>
 
+<c:choose>
+    <c:when test="${user==null}">
+        <p>you should log in first!</p>
 
+    </c:when>
+    <c:otherwise>
     <div>
         <h3 id="status">Status: </h3>
     </div>
@@ -76,6 +81,8 @@
         <input value="send" type="submit" id="sendMessage" onclick="sendMessage()">
     </div>
 </div>
+    </c:otherwise>
+</c:choose>
 <jsp:include page="footer.jsp">
     <jsp:param name="title" value="Home" />
 </jsp:include>
