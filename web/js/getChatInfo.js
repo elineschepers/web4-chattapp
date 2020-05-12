@@ -99,8 +99,18 @@ function getData() {
                         }
                         else if (j === 2) {
                             let td = document.createElement('td');
-                            let str = '<button id="' + serverResponse[i].userId + '" onclick="startconvo(\'' + serverResponse[i].userId + '\');">chat</button>'
-                            td.innerHTML = str;
+                            //let str = '<button id="' + serverResponse[i].userId + '" onclick="startconvo(\'' + serverResponse[i].userId + '\');">chat</button>'
+                            var button = document.createElement("button");
+                            button.id=serverResponse[i].userId;
+                            button.innerText="chat"
+                            button.addEventListener("click", function() {
+
+
+                                startconvo(this.id);
+
+                            });
+                            td.appendChild(button);
+                            //td.innerHTML = str;
                             tr.appendChild(td);
 
                         }
