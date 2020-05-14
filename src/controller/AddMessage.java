@@ -18,7 +18,7 @@ public class AddMessage extends AsyncroonHandler {
         System.out.println(friend.getFirstName());
         Message message = new Message(me,request.getParameter("message"));
         System.out.println(message.getMessage());
-        getConvoService().update(friend.getUserId(),message);
+        getConvoService().update(me.getUserId(),friend.getUserId(),message);
         System.out.println("het bericht: "+message.getMessage());
         response.setStatus(200);
         return message.getMessage();

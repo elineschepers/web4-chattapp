@@ -16,7 +16,7 @@ public class StartConversation extends SyncroonHandler{
         String friend = request.getParameter("friend");
         Person inSession = (Person) request.getSession().getAttribute("user");
 
-        System.out.println(friend);
+        //System.out.println(friend);
         System.out.println("conversation established");
         Conversation conversation = new Conversation(inSession,getPersonService().getPerson(friend));
         getConvoService().addConvo(conversation);

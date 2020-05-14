@@ -11,9 +11,9 @@ public abstract class ConversationRepo {
 
     public abstract void addConvo(Conversation conversation);
 
-    public abstract Conversation getConvo(String userId);
+    public abstract Conversation getConvo(String sender,String receiver);
 
-    public abstract int getAmountOfMessages(String userid);
-    public abstract void update(String userid,Message message);
+    public abstract int getAmountOfMessages(String sender,String receiver);
+    public abstract void update(String sender,String receiver,Message message);
 
 }

@@ -6,7 +6,7 @@ function startconvo(userid)
     alert("post verstuurd")
     //trigger getmessages
     getmessages(userid)
-    //getAmountSend(userid)
+    getAmountSend(userid)
 
 }
 
@@ -29,7 +29,7 @@ function getAmountSend(userid)
         success: function(json)
         {
                 $("#amountOfMessages").text("amount of messages sent: "+json);
-                setTimeout(getAmountSend,10000)
+
 
         }, error: function()
         {
@@ -38,6 +38,7 @@ function getAmountSend(userid)
 
 
     });
+    setTimeout("getAmountSend(userid)",10000)
 }
 
 function getmessages(userid)
@@ -45,7 +46,7 @@ function getmessages(userid)
     $.ajax({type:"GET", url:"Controller?action=GetMessages&userId="+userid,dataType:"json",
         success: function(json)
     {
-        alert("test")
+        $("#messages").empty();
         $(json).each(function(index,message)
         {
 
@@ -54,7 +55,7 @@ function getmessages(userid)
         });
         setTimeout(function () {
             getmessages(userid);
-        },10000);
+        },2000);
     }, error: function()
         {
             alert("something went wrong while retrieving your messages")

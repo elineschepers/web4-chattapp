@@ -3,6 +3,7 @@ package controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Message;
+import domain.Person;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +15,9 @@ public class GetAmountOfMessages extends AsyncroonHandler {
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         String friend = request.getParameter("userId");
-        System.out.println(getConvoService().getAmountOfMessages(friend));
-        return Integer.toString(getConvoService().getAmountOfMessages(friend));
+        String me = ((Person) request.getSession().getAttribute("user")).getUserId();
+        //System.out.println(getConvoService().getAmountOfMessages(me,friend));
+        return Integer.toString(getConvoService().getAmountOfMessages(me,friend));
 
     }
 

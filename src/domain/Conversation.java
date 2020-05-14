@@ -3,21 +3,21 @@ package domain;
 import java.util.ArrayList;
 
 public class Conversation {
-    private Person p1, p2;
+    private Person sender, receiver;
     private ArrayList<Message> messages;
 
-    public Conversation(Person p1, Person p2) {
-        this.p1 = p1;
-        this.p2 = p2;
+    public Conversation(Person sender, Person receiver) {
+        this.sender = sender;
+        this.receiver = receiver;
         messages=new ArrayList<>();
     }
 
     public Person getSender() {
-        return p1;
+        return sender;
     }
 
     public Person getReceiver() {
-        return p2;
+        return receiver;
     }
 
     public int getTotalMessages()

@@ -14,8 +14,11 @@ public class GetMessages extends AsyncroonHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+
         String friend = request.getParameter("userId");
-        String json = this.toJSON(getConvoService().getConvo(friend).getMessages());
+        String me = ((Person) request.getSession().getAttribute("user")).getUserId();
+        String json = this.toJSON(getConvoService().getConvo(me,friend).getMessages());
+
         return json;
     }
 

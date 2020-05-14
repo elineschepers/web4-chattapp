@@ -14,14 +14,14 @@ public class ConversationService {
         personRepository.addConvo(conversation);
     }
 
-    public Conversation getConvo(String userId)
+    public Conversation getConvo(String sender,String receiver)
     {
-        return personRepository.getConvo(userId);
+        return personRepository.getConvo(sender,receiver);
     }
 
-    public int getAmountOfMessages(String userid){return  personRepository.getAmountOfMessages(userid);}
-    public void update(String userid,Message message)
+    public int getAmountOfMessages(String sender,String receiver){return  personRepository.getAmountOfMessages(sender,receiver);}
+    public void update(String sender,String receiver,Message message)
     {
-        personRepository.update(userid,message);
+        personRepository.update(sender,receiver,message);
     }
 }

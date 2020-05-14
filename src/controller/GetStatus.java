@@ -16,6 +16,7 @@ public class GetStatus extends AsyncroonHandler {
 
 
         Person p = ((Person) request.getSession().getAttribute("user"));
+        System.out.println("getstatus "+getPersonService().getStatus(p.getUserId()));
         String status= getPersonService().getStatus(p.getUserId());
 
 

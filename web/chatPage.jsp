@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -35,7 +36,9 @@
     <div>
         <h3 id="status">Status: </h3>
     </div>
-    <div>
+    <button id="friendshideshow">hide/show</button>
+
+    <div id="friendstable" style="display: block">
         <h3>Friends:</h3>
         <table id="friendsList">
             <thead>

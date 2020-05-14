@@ -11,6 +11,14 @@ window.onload =function() {
     getFriendsOnline();
 
 }
+document.getElementById("friendshideshow").addEventListener("click",hideShowfriends,false);
+function hideShowfriends()
+{
+    $(document).ready(function()
+    {
+        $("#friendstable").slideToggle();
+    })
+}
 function getFriendsOnline()
 {
     xhrOnlineFriends.open("GET","Controller?action=GetAmountOfFriendsOnline",true)
@@ -40,8 +48,8 @@ function getOnlineFriendsData()
             let span = document.getElementById("amountOfFriends");
             span.innerHTML="";
             span.appendChild(document.createTextNode(serverResponse));
-            console.log(serverResponse);
-            setTimeout(getFriendsOnline(),10000)
+            //console.log(serverResponse);
+            setTimeout("getFriendsOnline()",10000)
         }
     }
 }
@@ -53,13 +61,13 @@ function getDataStatus()
         {
             //let serverResponse = JSON.parse(xhrStatus.responseText); //want geen json voor status
             let serverResponse = xhrStatus.responseText;
-            console.log(serverResponse);
+            //console.log(serverResponse);
             //let status = serverResponse.status; // status property uit JSON
 
             let h3 = document.getElementById("status")
             h3.innerHTML="";
             h3.appendChild(document.createTextNode("Status: "+serverResponse));
-            setTimeout(getStatus(), 10000);
+            setTimeout("getStatus()", 10000);
         }
 
 
@@ -102,7 +110,7 @@ function getData() {
                             //let str = '<button id="' + serverResponse[i].userId + '" onclick="startconvo(\'' + serverResponse[i].userId + '\');">chat</button>'
                             var button = document.createElement("button");
                             button.id=serverResponse[i].userId;
-                            button.innerText="chat"
+                            button.innerText="chat";
                             button.addEventListener("click", function() {
 
 
@@ -117,11 +125,14 @@ function getData() {
 
                     tbody.appendChild(tr);
                 }
+
             }
-            setTimeout(getFriends(),10000)
+            setTimeout("getFriends()", 2000);
         }
 
     }
+
+
 
 
 
